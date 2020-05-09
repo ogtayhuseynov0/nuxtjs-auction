@@ -5,14 +5,47 @@
       icon="mdi-star-circle"
       text="Special Auctions"
     />
-    <!-- <div class="d-flex flex-wrap align-center justify-space-between"> -->
     <v-row>
       <AuctionCard
-        v-for="n in 7"
+        v-for="n in 3"
         :key="n"
+        :special=true
       />
     </v-row>
-    <!-- </div> -->
+    <v-row class="my-2 mx-0">
+      <v-btn
+        block
+        text
+        color="teal"
+      >
+        <v-icon>mdi-dots-horizontal</v-icon> &nbsp;
+        View More Specials
+
+      </v-btn>
+    </v-row>
+    <Heading
+      color="green"
+      icon="mdi-clock-fast"
+      text="New Auctions"
+    />
+    <v-row>
+      <AuctionCard
+        v-for="n in 3"
+        :key="n"
+        :special=false
+      />
+    </v-row>
+    <v-row class="my-2 mx-0">
+      <v-btn
+        block
+        text
+        color="green"
+      >
+        <v-icon>mdi-dots-horizontal</v-icon> &nbsp;
+
+        View More New Auctions
+      </v-btn>
+    </v-row>
   </div>
 </template>
 
