@@ -19,6 +19,7 @@
       <v-card-text class="text--primary">
         <div>Whitehaven Beach</div>
       </v-card-text>
+      <v-divider />
       <v-card-actions>
         <v-btn
           color="orange"
