@@ -2,6 +2,14 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'universal',
+  // or
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+    beforeEnter (el) {
+      console.log('Before enter...');
+    }
+  },
   /*
    ** Headers of the page
    */
@@ -31,12 +39,16 @@ export default {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: '#4FC08D',
+    failedColor: '#bf5050',
+    duration: 1500
   },
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '~/assets/main.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
