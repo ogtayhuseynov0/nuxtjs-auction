@@ -12,7 +12,24 @@
         v-if="searchVisible"
       />
       <v-spacer v-if="searchVisible" />
-      <v-text-field
+      <v-autocomplete
+      v-model="select"
+      :loading="loading"
+      :items="items"
+      :search-input.sync="search"
+      item-text="text"
+      item-value="link"
+      clearable
+      flat
+      dense
+      hide-no-data
+      hide-details
+      label="Search"
+      :class="searchVisible ? 'hidden-sm-and-down' : ''"
+      solo-inverted
+      prepend-inner-icon="mdi-magnify"
+    ></v-autocomplete>
+      <!-- <v-text-field
         flat
         dense
         solo-inverted
@@ -20,8 +37,8 @@
         prepend-inner-icon="mdi-magnify"
         label="Search"
         :class="searchVisible ? 'hidden-sm-and-down' : ''"
-      >
-      </v-text-field>
+      > -->
+      <!-- </v-text-field> -->
       <v-icon
         v-if="!searchVisible"
         style="cursor: pointer"
@@ -89,9 +106,51 @@ export default {
       drawer: { on: false },
       fixed: false,
       searchVisible: true,
-      title: 'Auction'
+      title: 'Auction',
+      loading: false,
+        items: [],
+        search: null,
+        select: null,
+        states: [
+          {
+            text: 'Home',
+            link: '/'
+          },
+            {
+            text: 'Login',
+            link: '/login'
+          },
+          ,
+            {
+            text: 'Register',
+            link: '/register'
+          },
+        ]
     }
-  }
+  },
+    watch: {
+      search (val) {
+        val && val !== this.select && this.querySelections(val)
+      },
+      select (val) {
+        if(val !== null && val !== undefined){
+          this.select = undefined
+          this.$router.push(val)
+        }
+      }
+    },
+    methods: {
+      querySelections (v) {
+        this.loading = true
+        // Simulated ajax query
+        setTimeout(() => {
+          this.items = this.states.filter(e => {
+            return (e.text || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
+          })
+          this.loading = false
+        }, 500)
+      },
+    }
 }
 </script>
 

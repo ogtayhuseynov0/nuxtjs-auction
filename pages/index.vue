@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- {{hello}} -->
     <Heading
       color="teal"
       icon="mdi-star-circle"
@@ -57,6 +58,10 @@ export default {
   components: {
     Heading,
     AuctionCard
-  }
+  },
+  // async asyncData ({ params, $axios }) {
+  //   const { data } = await $axios.get(`http://localhost:3000/api/auctions`)
+  //   return { hello: data.hello }
+  // }
 }
 </script>

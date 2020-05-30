@@ -43,6 +43,10 @@ export default {
     failedColor: '#bf5050',
     duration: 1500
   },
+   /*
+   ** server middleware
+   */
+  serverMiddleware: [{ path: '/api', handler: '~/server/routes/api/index.js' }],
   /*
    ** Global CSS
    */
