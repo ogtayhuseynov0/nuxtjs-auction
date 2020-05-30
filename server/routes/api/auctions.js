@@ -2,29 +2,22 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const router = express.Router()
-const Auction = require('../../models/Auction')
-
-router.get('/', (req, res) =>
-  res.json({
-    hello: "Auction.find()"
-  })
-)
-
+// const Auction = require('../../models/Auction')
+var schema = new mongoose.Schema({ name: 'string', size: 'string' });
+var Tank = mongoose.model('Tank', schema);
 router.post('/', (req, res) =>
 {
-  // res.json(req.body.initial)
-  const auc = new Auction({
-    nameString: req.body.name,
-    initial: req.body.initial,
-    typeAuction: req.body.typeAuction,
-    daysToStay: req.body.daysToStay
+  const test = new Tank({
+    size: "Hello"
   })
-  auc.save().then(data => {
-    res.json(data)
-  }).catch(err=> {
-    res.json(err)
-  })
-  // res.json(req.body)
+  // console.log(test)
+  test.save(function (err) {
+    if (err) {
+      console.log(err)
+    }
+    // saved!
+    console.log('saved-------------------')
+  });
 }
 )
 
