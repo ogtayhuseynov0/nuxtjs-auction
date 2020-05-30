@@ -61,6 +61,7 @@ export default {
   },
   // async asyncData ({ params, $axios }) {
   //   const { data } = await $axios.get(`http://localhost:3000/api/auctions`)
+  //   console.log('hello')
   //   return { hello: data.hello }
   // }
 }

@@ -8,5 +8,6 @@ app.use(router)
 
 const auctions = require('./auctions')
 app.use(auctions)
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 module.exports = app
