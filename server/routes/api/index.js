@@ -5,22 +5,25 @@ const bodyParser = require('body-parser');
 require('dotenv/config')
 const router = express.Router()
 
-app.get('/', (req, res) => res.send('best api'))
-
-app.use(router)
-
-const auctions = require('./auctions')
-app.use('/auctions', auctions)
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
 // connect db
 mongoose.connect(process.env.MONGODB,
     { useUnifiedTopology: true },
-     () => {
+    () => {
         console.log('connected to Db')
     })
+    
+    
+app.get('/', (req, res) => res.send('best api'))
+    
+    
+app.use(router)
+const auctions = require('./auctions')
+app.use('/auctions', auctions)
+
 
 module.exports = app

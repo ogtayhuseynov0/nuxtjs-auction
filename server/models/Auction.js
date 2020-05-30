@@ -5,7 +5,7 @@ const AuctionSchema = mongoose.Schema({
         required: true,
         type: Number
     },
-    name: {
+    nameString: {
         required: true,
         type: String
     },
@@ -23,4 +23,4 @@ const AuctionSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Auctions', AuctionSchema)
+module.exports = mongoose.model('auctions', AuctionSchema)
