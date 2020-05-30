@@ -10,6 +10,8 @@
       <v-toolbar-title
         v-text="title"
         v-if="searchVisible"
+        @click="$router.push('/')"
+        style="cursor: pointer"
       />
       <v-spacer v-if="searchVisible" />
       <v-autocomplete
