@@ -1,13 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-// router.get('/auctions', (res, req) => {
-//   res.send('auctions')
-// })
-router.get('/auctions', (req, res) =>
+
+router.get('/', (req, res) =>
   res.json({
     hello: "hello World"
   })
+)
+
+router.put('/', (req, res) =>{
+    res.json(req.body)
+})
+router.post('/', (req, res) =>
+  res.json(req.body)
 )
 
 module.exports = router

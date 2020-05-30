@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.16",
     "nuxt": "^2.0.0"
