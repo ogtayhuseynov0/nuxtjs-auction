@@ -29,16 +29,6 @@
       solo-inverted
       prepend-inner-icon="mdi-magnify"
     ></v-autocomplete>
-      <!-- <v-text-field
-        flat
-        dense
-        solo-inverted
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        label="Search"
-        :class="searchVisible ? 'hidden-sm-and-down' : ''"
-      > -->
-      <!-- </v-text-field> -->
       <v-icon
         v-if="!searchVisible"
         style="cursor: pointer"
